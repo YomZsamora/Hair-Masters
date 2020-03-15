@@ -1,0 +1,20 @@
+{{#partial "title"}}Login page{{/partial}}
+
+
+{{#partial "content"}}
+<div class="login-page">
+      <div class="form">
+         <div class="login-form">            
+            <form role="form" method="post" action="">
+         	   <input type="text" name="username" placeholder="Username" autocomplete="off"/>
+         	   <input type="password" name="myPassword" placeholder="Password" autocomplete="off"/>
+         	   <button type="submit">login</button>
+         	   <p class="message">Welcome Back Hair Masters App! <a href="/create_account">Create Account</a></p>
+            </form>
+         </div>
+      </div>
+   </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

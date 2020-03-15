@@ -1,0 +1,41 @@
+{{#partial "title"}}Create Account Page{{/partial}}
+
+
+{{#partial "content"}}
+<div class="add-stylist">
+	<h1 class="mb0">Create a New <span class="text-primary">Client Account</span></h1>
+    <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Back to Stylists</a></small>
+	<hr>
+	<div class="create-account-form">
+		<form action="/addStylist" method="post" name="addStylist">
+			<div class="form-group mb15">
+              	<label class="label">Username</label>
+               	<input type="text" name="username" placeholder="Stylist's Username" class="form-control" />
+            </div>
+            
+			<div class="form-group mb15">
+              	<label class="label">Full Names</label>
+               	<input type="text" name="stylistName" placeholder="Last Name First Name" class="form-control" />
+            </div> 
+
+			<div class="form-group mb15">
+              	<label class="label">Phone No.</label>
+               	<input type="text" name="stylistPhone" placeholder="Stylist's Mobile Number" class="form-control" />
+      </div>   
+      <div class="form-group mb15">
+                <label class="label">Password</label>
+                <input type="password" name="password" placeholder="Password" class="form-control" />
+      </div>
+      <div class="form-group mb15">
+                <label class="label">Confirm Password</label>
+                <input type="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Create Account</button>
+      <button type="reset" class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>		
+		</form>	
+	</div>
+</div>
+
+{{/partial}}
+
+{{> layout.hbs}}
