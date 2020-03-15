@@ -1,21 +1,22 @@
 package dao;
 
 import models.Authors;
+import models.Clients;
 
 import java.util.List;
 
-public interface Authorsdao {
+public interface ClientDao {
     // LIST
-    List<Authors> getAll();
+    List<Clients> getAll();
 
     // CREATE
-    void add(Authors task);
+    void add(Clients client);
 
     // READ
-    Authors findById(int id);
+    Clients findById(int id);
 
     // UPDATE
-    void update(int id, String authorsName);
+//    void update(int id, String authorsName);
 
     // DELETE
     void deleteById(int id);
