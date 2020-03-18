@@ -4,17 +4,19 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Clients {
+    private int client_id;
     private String username;
     private String clientName;
     private String clientPhone;
     private String password;
-    private int client_id;
+    private boolean role;
 
     public Clients(String username, String clientName, String clientPhone, String password){
         this.username = username;
         this.clientName = clientName;
         this.clientPhone = clientPhone;
         this.password = password;
+        this.role = false;
     }
 
     public int getClient_id() {
@@ -35,6 +37,10 @@ public class Clients {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean getRole() {
+        return role;
     }
 
     public void setClient_id(int client_id) {

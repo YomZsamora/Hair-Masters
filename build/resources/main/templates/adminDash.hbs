@@ -1,0 +1,75 @@
+{{#partial "title"}}Admin Dashboard{{/partial}}
+
+
+{{#partial "content"}}
+
+    <div class="add-client">
+        <h1 class="mb0">Administrator's' <span class="text-primary">Dashboard</span></h1>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group mb15">
+                    <label class="label">Add New Stylist:</label>
+                    <div class="create-account-form">
+                        <form action="/postNewStylist" method="post" name="addStylist">
+                            <div class="form-group mb15">
+                                <label class="label">Email</label>
+                                <input type="text" name="stylistEmail" placeholder="Stylist's Email" class="form-control" />
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">Full Names</label>
+                                <input type="text" name="stylistName" placeholder="Last Name First Name" class="form-control" />
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">Phone No.</label>
+                                <input type="text" name="stylistPhone" placeholder="Stylist's Mobile Number" class="form-control" />
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">Department</label>
+                                <select data-placeholder="Stylist's Dept." class="form-control" name="stylistDept">
+                                    <option label="- Stylist's Dept. -"></option>
+                                    <option value="Hair Styling">Hair Styling</option>
+                                    <option value="Hair Coloring">Hair Coloring</option>
+                                    <option value="Hair Cutting">Hair Cutting</option>
+                                    <option value="Weaving">Weaving</option>
+                                    <option value="Facial">Facial</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">Password</label>
+                                <input type="password" name="password" placeholder="Password" class="form-control" />
+                            </div>
+                            <div class="form-group mb15">
+                                <label class="label">Confirm Password</label>
+                                <input type="password" name="confirmPassword" placeholder="Confirm Password" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Stylist</button>
+                            <button type="reset" class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                {{#if stylists}}
+                    {{#each stylists }}
+                        <div class="stylist-details mb40">
+                            <h3>{{ stylistName }} <small>({{ stylistDept }})</small></h3>
+                            <small>Email: <span class="text-primary">{{ stylistEmail }}</span> | Phone: <span class="text-primary">{{ stylistPhone }}</span>
+                                <br><a href="/stylist/{{stylist_id}}/delete"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Remove this Stylist</a><!--  | No of Clients: <span class="text-primary">5</span> --></small>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <p>No Stylists!</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}
