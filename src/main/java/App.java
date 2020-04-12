@@ -32,7 +32,7 @@ public class App {
             port = 4567;
         }
         setPort(port);
-        
+
         staticFileLocation("/public");
         String connectionString = "jdbc:postgresql://localhost:5432/hair_masters";
         Sql2o sql2o = new Sql2o(connectionString, "mac", "@dZumi0991");

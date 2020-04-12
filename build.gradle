@@ -8,8 +8,6 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-mainClassName = 'App'
-
 repositories {
     mavenCentral()
 }
@@ -23,5 +21,6 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
 
-defaultTasks = ['clean']
-task stage(dependsOn: ['clean', 'installApp'])
+applicationName = "HairMasters" 
+mainClassName = 'App'
+task stage(dependsOn: ['clean', 'installDist'])
