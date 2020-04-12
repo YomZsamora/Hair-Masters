@@ -11,12 +11,12 @@
             {{#if stylists}}
                 {{#each stylists }}
                     <div>
-                        <h3>{{ stylistName }} <small>({{ stylistDept }})</small></h3>
+                        <h3> {{ stylistName }} <small>({{ stylistDept }})</small></h3>
                         <small>Email: <span class="text-primary">{{ stylistEmail }}</span> | Phone: <span class="text-primary">{{ stylistPhone }}</span></small><br>
                         {{#if userRole }}
-                            <small><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;View Clients and Bookings</a>&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                            <small><a href="/stylist/{{ stylist_id }}/schedule"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;View Clients and Bookings</a>&nbsp;&nbsp;&nbsp;&nbsp;</small>
                         {{else}}
-                        <small><a href="/bookings"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Show Stylist's Availability</a>&nbsp;&nbsp;&nbsp;&nbsp;</small>
+                            <small><a href="/stylist/{{ stylist_id }}/schedule"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Show Stylist's Availability</a>&nbsp;&nbsp;&nbsp;&nbsp;</small>
                         {{/if}}
                     </div>
                 {{/each}}
@@ -24,17 +24,42 @@
                 <p>No Stylists!</p>
             {{/if}}
         </div>
-        <div class="col-md-4">
-            <h3>Schedule for this Week</h3>
-            <div>
-                <h3><small>Tuesday</small></h3>
-                <small class="nomargin">From <span class="text-primary"><strong>9:00AM - 12:00PM</strong></small>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <small>Booked by <span class="text-primary"> <strong>Samora Yommie</strong></span></small>
-            </div>
+        <div>
+            <div class="col-md-8 text-right">
+                <div class="form-group mb15 col-md-5">
+                    <label class="label">Select Appointment Date:</label>
+
+                    <div class="input-group mb15">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input type="date" placeholder="mm/dd/yyyy" id="booking_date" name="booking_date" class="form-control booking-date" autocomplete="off">
+                    </div>
+                    <a type="submit" class="btn btn-primary btn-xs bookings">Check Availability</a>
+
+                </div>
+                <h3 class="fs-20">Booked Schedules for this Week & Beyond</h3>
+                <small><span class="text-primary">Today is <strong>{{ currentDayString }}.</strong></span></small>
+                {{#if bookings}}
+                    {{#each bookings }}
+                        <div>
+                            <h3><small>
+                                {{ stylist}}
+                            </small></h3>
+                            <small class="nomargin">Date: <strong>{{stringBookingDate}}</strong> | <span class="text-primary">{{start_at}}hrs - {{end_at}}hrs</small><br><small>Booked by <span class="text-primary"> {{client}}</span></small>
+                            <hr>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="alert alert-danger mt20">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                        No Bookings Have Been Scheduled Yet!
+                    </div>
+                {{/if}}
         </div>
-        <div class="col-md-4"></div>
     </div>
 </div>
+
+
+
 
 
 {{/partial}}

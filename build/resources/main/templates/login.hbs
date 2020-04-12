@@ -8,16 +8,16 @@
              <p>Use <code>admin@admin.com</code> as the Username and <code>admin</code> as the password to login as the administrator. </p>
 
              <ul class="nav nav-tabs">
-                 <li class="active"><a href="#stylist" data-toggle="tab"><strong>Stylist Login</strong></a></li>
+                 <li class="active"><a href="#stylist" data-toggle="tab"><strong>Staff Login</strong></a></li>
                  <li><a href="#client" data-toggle="tab"><strong>Client Login</strong></a></li>
              </ul>
 
              <!-- Tab panes -->
              <div class="tab-content mb30">
                  <div class="tab-pane active" id="stylist">
-                     <h4 class="dark">Login as Stylist <small>(Login with Email Address for Stylists)</small></h4>
+                     <h4 class="dark">Login as Admin/Stylist <br><small>(Login with Email Address for Stylists)</small></h4>
 
-                     <form role="form" method="post" action="/stylistLogin">
+                     <form role="form" method="post" action="/stylistLogin" class="mt20">
                          <input type="text" name="email" placeholder="Email" autocomplete="off"/>
                          <input type="password" name="myPassword" placeholder="Password" autocomplete="off"/>
                          <button type="submit">login</button>
@@ -25,8 +25,8 @@
                      </form>
                  </div>
                  <div class="tab-pane" id="client">
-                     <h4 class="dark">Login as Client <small>(Login with Username for Clients)</small></h4>
-                     <form role="form" method="post" action="/clientLogin">
+                     <h4 class="dark">Login as Client <br><small>(Login with Username for Clients)</small></h4>
+                     <form role="form" method="post" action="/clientLogin" class="mt20">
                          <input type="text" name="username" placeholder="Username" autocomplete="off"/>
                          <input type="password" name="myPassword" placeholder="Password" autocomplete="off"/>
                          <button type="submit">login</button>

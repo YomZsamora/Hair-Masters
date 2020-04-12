@@ -16,9 +16,10 @@ public class Sql2oStylistsDao implements StylistDao {
     }
 
     @Override
-    public List<Stylists> getAll() {
+    public List<Stylists> getAll(String value) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM stylists") //raw sql
+            return con.createQuery("SELECT * FROM stylists WHERE role = :value") //raw sql
+                    .addParameter("value", value)
                     .executeAndFetch(Stylists.class); //fetch a list
         }
     }

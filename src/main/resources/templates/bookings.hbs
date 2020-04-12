@@ -5,16 +5,19 @@
 
 <div class="add-client">
 	<h1 class="mb0">Check Stylists' <span class="text-primary">Bookings</span> and <span class="text-primary">Availability</span></h1>
-    <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;View all Stylists</a></small>
+    <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/bookings"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Bookings & Availability</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;View all Stylists</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logoutClient"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Log Out</a></small>
 	<hr>
    <div class="row">
       <div class="col-md-4">
       	<div class="form-group mb15">
           	<label class="label">Select Appointment Date:</label>
+
            	<div class="input-group mb15">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input type="text" placeholder="mm/dd/yyyy" id="myBirthDate" class="form-control" autocomplete="off">
+                <input type="date" placeholder="mm/dd/yyyy" id="booking_date" name="booking_date" class="form-control booking-date" autocomplete="off">
              </div>
+                <a type="submit" class="btn btn-primary btn-xs bookings">Check Availability</a>
+
         </div> 
       </div>
       <div class="col-md-8">

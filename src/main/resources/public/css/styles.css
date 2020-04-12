@@ -13,6 +13,18 @@ h1, h2, h3, h4, h5, h6 {
     color: #343a40;
 }
 
+.mt20 {
+     margin-top:20px !important;
+}
+
+.fs-20 {
+    font-size:20px !important;
+}
+
+.text-right {
+    text-align:right;
+}
+
 .intro h1 {
     font-size: 15rem;
 }
@@ -29,6 +41,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .stylist-details h3, .client-details h3 {
     margin-bottom: 0;
+}
+
+.stylist-schedule {
+    width:850px !important;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.stylist-schedule hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #e7e7e7;
+}
+
+.stylist-schedule .alert.alert-danger {
+    padding: 5px;
+    font-size: 11px;
 }
 
 .client-details .alert p, .client-details .alert p a {

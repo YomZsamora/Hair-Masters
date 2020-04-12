@@ -1,0 +1,63 @@
+{{#partial "title"}}{{stylist.stylistName}}'s Page{{/partial}}
+
+
+{{#partial "content"}}
+    <div class="stylists">
+        <h1 class="mb-0"><span class="text-primary">Stylist's Schedule</span></h1>
+        <h3> {{ stylist.stylistName }} <small>({{ stylist.stylistDept }})</small></h3>
+        <small>Email: <span class="text-primary">{{ stylist.stylistEmail }}</span> | Phone: <span class="text-primary">{{ stylist.stylistPhone }}</span></small><br>
+        <small><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Go Back to Stylists</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/bookings"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Bookings & Availability</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logoutClient"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Log Out</a></small>
+        <hr>
+        <div class="row">
+
+            <div class="stylist-schedule">
+                <div class="col-md-6">
+                    <h3 class="fs-20">{{ stylist.stylistName }} Schedules for this Week</h3>
+                    {{#if bookings}}
+                        {{#each bookings}}
+                            <div>
+                                <small class="nomargin">{{stringBookingDate}} <br><span class="text-primary"><strong>{{start_at}}hrs - {{end_at}}hrs</strong></small>,&nbsp<small>Booked by <span class="text-primary"> <strong>{{client}}</strong></span></small>
+                                <hr>
+                            </div>
+                        {{/each}}
+                    {{else}}
+                        <div class="alert alert-danger mt20">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                            No Bookings Have Been Scheduled For this Stylist Yet!
+                        </div>
+                    {{/if}}
+                </div>
+                {{#if userRole}}
+
+                {{else}}
+                    <div class="col-md-6">
+                        <h3><small>Book Stylist {{ stylist.stylistName }}</small></h3>
+                        <form action="/makeBooking" method="post" name="addStylist">
+                            <div class="form-group mb15">
+                                <label class="label">Select Date</label>
+                                <input type="date" name="booking_date" placeholder="Select Day" class="form-control" />
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">From</label>
+                                <input type="time" name="start_at" placeholder="Time From" class="form-control" />
+                            </div>
+
+                            <div class="form-group mb15">
+                                <label class="label">To</label>
+                                <input type="time" name="end_at" placeholder="...to What Time?" class="form-control" />
+                                <input type="hidden" id="stylist_id" name="stylist_id" value="{{ stylist.stylist_id }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;Book Stylist</button>
+                            <button type="reset" class="btn btn-default btn-xs"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>
+                        </form>
+                    </div>
+                {{/if}}
+            </div>
+            </div>
+        </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

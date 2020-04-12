@@ -7,7 +7,7 @@ import java.util.List;
 public interface StylistDao {
 
     // LIST
-    List<Stylists> getAll();
+    List<Stylists> getAll(String value);
 
     // CREATE
     void add(Stylists stylist);

@@ -1,0 +1,46 @@
+{{#partial "title"}}Stylist Dashboard Page{{/partial}}
+
+
+{{#partial "content"}}
+
+    <div class="add-client">
+        {{#if stylist}}
+            <h1 class="mb0">{{stylist.stylistName}}'s <span class="text-primary">Dashboard</span></h1>
+            <small><a href="/bookings"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Bookings & Availability</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/stylists"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;View all Stylists</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logoutClient"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Log Out</a></small>
+            <hr>
+        {{/if}}
+    </div>
+    {{#if userRole}}
+    <div class="intro">
+        <p>This application generally manages the basic operations of a hair salon. The owner should be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist and the clients fcan check the availability of the Stylists and book schedules in advance.</p>
+        <div>
+            <h3 class="fs-20">{{ stylist.stylistName }} Schedules for this Week</h3>
+            {{#if bookings}}
+                {{#each bookings}}
+                    <div>
+                        <small class="nomargin">{{stringBookingDate}} <br><span class="text-primary"><strong>{{start_at}}hrs - {{end_at}}hrs</strong></small>,&nbsp<small>Booked by <span class="text-primary"> <strong>{{client}}</strong></span></small>
+                        <hr>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="alert alert-danger mt20">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    No Bookings Have Been Scheduled For You Yet!
+                </div>
+            {{/if}}
+        </div>
+    </div>
+    {{else}}
+        <div class="intro">
+            <h1 class="mb-0">Hair
+                <span class="text-primary">Masters</span>
+            </h1>
+            <hr>
+            <p>This application generally manages the basic operations of a hair salon. The owner should be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist and the clients fcan check the availability of the Stylists and book schedules in advance.</p>
+            <a href="/adminDash" class="btn btn-primary btn-xs">Add New Stylist</a>
+        </div>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
