@@ -22,3 +22,6 @@ dependencies {
     compile 'org.sql2o:sql2o:1.5.4'
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
+
+defaultTasks = ['clean']
+task stage(dependsOn: ['clean', 'installApp'])
