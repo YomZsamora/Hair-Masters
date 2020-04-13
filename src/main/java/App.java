@@ -34,8 +34,7 @@ public class App {
         setPort(port);
 
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://localhost:5432/hair_masters";
-        Sql2o sql2o = new Sql2o(connectionString, "mac", "@dZumi0991");
+        Sql2o sql2o = DB.sql2o;
         Sql2oClientsDao clientsDao = new Sql2oClientsDao(sql2o);
         Sql2oStylistsDao stylistsDao = new Sql2oStylistsDao(sql2o);
         Sql2oBookingsDao bookingsDao = new Sql2oBookingsDao(sql2o);
