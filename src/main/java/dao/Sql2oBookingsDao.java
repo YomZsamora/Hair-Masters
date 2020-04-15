@@ -2,6 +2,7 @@ package dao;
 
 import dates.CurrentDate;
 import models.Bookings;
+import models.Stylists;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -59,8 +60,12 @@ public class Sql2oBookingsDao implements BookingsDao {
     }
 
     @Override
-    public Bookings findById(int id) {
-        return null;
+    public List<Bookings> findByDate(Date date) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM bookings WHERE booking_date = :date") //raw sql
+                    .addParameter("date", date)
+                    .executeAndFetch(Bookings.class); //fetch a list
+        }
     }
 
     @Override

@@ -26,15 +26,15 @@
         </div>
         <div>
             <div class="col-md-8 text-right">
-                <div class="form-group mb15 col-md-5">
+                <div class="form-group mb15">
                     <label class="label">Select Appointment Date:</label>
-
-                    <div class="input-group mb15">
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                        <input type="date" placeholder="mm/dd/yyyy" id="booking_date" name="booking_date" class="form-control booking-date" autocomplete="off">
-                    </div>
-                    <a type="submit" class="btn btn-primary btn-xs bookings">Check Availability</a>
-
+                    <form action="/searchBookings" method="post" name="searchBookings">
+                        <div class="input-group mb15">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="date" placeholder="mm/dd/yyyy" id="booking_date" name="booking_date" class="form-control booking-date" autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-xs bookings">Check Availability</button>
+                    </form>
                 </div>
                 <h3 class="fs-20">Booked Schedules for this Week & Beyond</h3>
                 <small><span class="text-primary">Today is <strong>{{ currentDayString }}.</strong></span></small>

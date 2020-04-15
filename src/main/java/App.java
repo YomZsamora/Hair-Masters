@@ -3,6 +3,7 @@ import dao.Sql2oClientsDao;
 
 import dao.Sql2oStylistsDao;
 import dates.CurrentDate;
+import dates.DateConversions;
 import models.Bookings;
 import models.Clients;
 import models.Stylists;
@@ -240,6 +241,16 @@ public class App {
             Bookings newBooking = new Bookings(booking_date, start_at, end_at, client, stylist);
             bookingsDao.add(newBooking);
             return new ModelAndView(model, "bookingSuccessful.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/searchBookings", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            String booking_date = req.queryParams("booking_date");
+            DateConversions convertedDate =  new DateConversions(booking_date);
+            List<Bookings> bookings = bookingsDao.findByDate(convertedDate.getBooking_date());
+            model.put("bookings", bookings);
+            model.put("selectedDate", convertedDate.getBooking_date());
+            return new ModelAndView(model, "bookings.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/checkBookings", (req, res) -> { //URL to make new task on POST route

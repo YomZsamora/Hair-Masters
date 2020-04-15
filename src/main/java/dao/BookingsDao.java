@@ -17,7 +17,7 @@ public interface BookingsDao {
     void add(Bookings booking);
 
     // READ
-    Bookings findById(int id);
+    List<Bookings> findByDate(Date date);
 
 
     // UPDATE

@@ -11,22 +11,40 @@
       <div class="col-md-4">
       	<div class="form-group mb15">
           	<label class="label">Select Appointment Date:</label>
-
+            <form action="/searchBookings" method="post" name="searchBookings">
            	<div class="input-group mb15">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                 <input type="date" placeholder="mm/dd/yyyy" id="booking_date" name="booking_date" class="form-control booking-date" autocomplete="off">
-             </div>
-                <a type="submit" class="btn btn-primary btn-xs bookings">Check Availability</a>
-
+            </div>
+            <button type="submit" class="btn btn-primary btn-xs bookings">Check Availability</button>
+            </form>
         </div> 
       </div>
       <div class="col-md-8">
-         
-         <div class="stylist-details mb40">
-            <h3>Samora, Yommie <small>(Weaving)</small></h3>
-            <small>Age: <span class="text-primary">28 yrs</span> | Phone: <span class="text-primary">0712900345</span>
-            	<br><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Book this Stylist</a><!--  | No of Clients: <span class="text-primary">5</span> --></small>
-         </div>
+          <h3><small>
+              {{ selectedDate }}
+          </small></h3>
+         {{#if bookings }}
+             {{#each bookings}}
+                 <div class="stylist-details mb40">
+                    <h3>{{stylist}} <small>(Booked by {{client}})</small></h3>
+                    <small><span class="text-primary">From <strong>{{start_at}}hr</strong> to <strong>{{end_at}}hrs</strong></span>
+                        </small>
+                 </div>
+             {{/each}}
+         {{else}}
+             {{#if selectedDate}}
+             <div class="alert alert-danger mt20">
+                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                 No Bookings Have Been Scheduled For {{selectedDate}} Yet! Search Specific Date from the Form!
+             </div>
+             {{else}}
+                 <div class="alert alert-danger mt20">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                     <strong>No Date of Booking has Been Selected</strong> Yet! Search Specific Date from the Form!
+                 </div>
+             {{/if}}
+         {{/if}}
       </div>
    </div>	
 </div>
